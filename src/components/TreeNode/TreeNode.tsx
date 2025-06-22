@@ -30,11 +30,13 @@ export const TreeNode = memo(({id, name, children}: TreeNodeProps) => {
         }
     }, [isEditing, name]);
 
-    const handleNodeClick = () => {
+    const handleNodeClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
         setSelectedNodeId(id);
     }
 
-    const handleDoubleClick = () => {
+    const handleDoubleClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
         setSelectedNodeId(id);
         setEditingNodeId(id);
     }
