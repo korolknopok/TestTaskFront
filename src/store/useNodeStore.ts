@@ -15,22 +15,23 @@ interface NodeState {
     setEditingNodeId: (id: number | null) => void;
 }
 
-const findNode = (
-    nodes: TreeData[],
-    id: number,
-): TreeData | null => {
+const findNode = (nodes: TreeData[], id: number): TreeData | null => {
+    let result: TreeData | null = null;
+
     for (const node of nodes) {
         if (node.id === id) {
-            return node;
+            result = node;
+            break;
         }
         if (node.children?.length) {
-            const result = findNode(node.children, id);
-            if (result) {
-                return result
+            const childResult = findNode(node.children, id);
+            if (childResult) {
+                result = childResult
+                break;
             }
         }
     }
-    return null;
+    return result;
 };
 
 const findMaxId = (nodes: TreeData[]): number => {
