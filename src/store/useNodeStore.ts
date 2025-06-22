@@ -5,13 +5,13 @@ import {produce} from "immer";
 interface NodeState {
     selectedNodeId: number | null;
     setSelectedNodeId: (id: number | null) => void;
-    tree: TreeData[],
-    counter: number,
-    addChildToNode: (parentId: number | null) => void,
-    deleteNodeById: (id: number | null) => void,
-    editNode: (id: number | null, newName: string) => void,
-    reset: () => void,
-    editingNodeId: number | null,
+    tree: TreeData[];
+    counter: number;
+    addChildToNode: (parentId: number | null) => void;
+    deleteNodeById: (id: number | null) => void;
+    editNode: (id: number | null, newName: string) => void;
+    reset: () => void;
+    editingNodeId: number | null;
     setEditingNodeId: (id: number | null) => void;
 }
 
